@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap");
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    
+}
+body{
+    font-family: 'Monomaniac One', sans-serif;
+    background-color: #ededf0;
+}
+.box{
+    height: 6rem;
+    /* width: 100%; */
+    background: transparent;
+    color: white;
+    margin-top: 2rem;
+    font-weight: bold;
+    font-size: 1.7rem;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 0.4rem;
+  
+    /* margin: 2rem; */
+  }
+  
+  
+  .box:nth-child(4n+1)
+  {
+    border-bottom: 0.2rem solid rgb(29, 97, 97);
+  }
+  .box:nth-child(4n+1):hover
+  {
+    transition: ease-in 1s;
+    box-shadow: inset 1100px 0 0 0 rgb(29, 97, 97);;
+    color: rgb(255, 255, 255);
+  }
+  .box:nth-child(4n+2)
+  {
+    border-bottom: 0.2rem solid rgb(10, 206, 224);
+  }
+  .box:nth-child(4n+2):hover
+  {
+    transition: ease-in 1s;
+    box-shadow: inset 110rem 0 0 0 rgb(10, 206, 224);
+    color: rgb(255, 255, 255);
+  }
+  
+  .box:nth-child(4n+3)
+  {
+    border-bottom: 0.2rem solid rgb(0, 160, 180)
+  }
+  
+  .box:nth-child(4n+3):hover
+  {
+    transition: ease-in 1s;
+    box-shadow: inset 1100px 0 0 0 rgb(0, 160, 180);
+    color: rgb(255, 255, 255);
+  }
+  
+  .box:nth-child(4n+4)
+  {
+    border-bottom: 0.2rem solid rgb(42, 139, 150);
+  }
+  .box:nth-child(4n+4):hover
+  {
+    transition: ease-in 1s;
+    box-shadow: inset 1100px 0 0 0 rgb(42, 139, 150);
+    color: rgb(255, 255, 255);
+  }
+  .userContainer{
+    height: 90vh;
+    overflow: auto;
+    scrollbar-width: thin;
+    background: whitesmoke;
+    scrollbar-color: #696464 #eeeeee00;
+
+  }
+  .userContainer::-webkit-scrollbar {
+    width: 2px;
+
+  }
+  
+  .userContainer::-webkit-scrollbar-thumb {
+    background-color: #696464;
+  }
+  
+  .userContainer::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  .chatContainer{
+    height: 78vh;
+    overflow: auto;
+    scrollbar-width: thin;
+  }
+  .chatContainer::-webkit-scrollbar
+  {
+    width: 0;
+  }
+
+
+
+  .chat-message {
+    display: inline-block;
+    padding: 8px;
+
+  }
+  
+  .chat-message-left {
+    background-color: #4a75a1;
+  }
+  
+  .chat-message-right {
+    background-color: #cf7d18df;
+  }
+  .textbar{
+    /* width: 60rem; */
+      height: 3rem;
+      background-color:rgb(118, 118, 118);
+      font-weight: 400;
+      font-size: 1.2rem;
+      padding-left: 2rem;
+      color: white;
+      border: none;
+  }
+  .textbar::placeholder{
+    color: white;
+  }
+  .sender{
+    background-image: url('../../public/send.png');
+    width: '8rem';
+    /* height: '8rem'; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+  }
+  .emoji-picker-container {
+    position: absolute;
+    bottom: 100%;
+
+  }
+  .EmojiPickerReact .Flex  {
+    display: none !important;
+  }
+  
+  @media only screen and (max-width:1000px)
+  {
+    html{
+      font-size: 52%;
+    }
+  }
+
+  @media only screen and (max-width:900px)
+  {
+    html{
+      font-size: 50%;
+    }
+  }
+  @media only screen and (max-width:800px)
+  {
+    html{
+      font-size: 40%;
+    }
+  }
+
+  @media only screen and (max-width:500px)
+  {
+    html{
+      font-size: 35%;
+    }
+  }
+  @media only screen and (max-width:400px)
+  {
+    html{
+      font-size: 30%;
+    }
+  }
+  @media only screen and (max-width:300px)
+  {
+    html{
+      font-size: 25%;
+    }
+  }
+  @media only screen and (max-width:250px)
+  {
+    html{
+      font-size: 20%;
+    }
+  }
