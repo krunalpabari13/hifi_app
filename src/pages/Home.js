@@ -8,9 +8,10 @@ import EmojiPicker from "emoji-picker-react";
 import LoadingBar from 'react-top-loading-bar';
 
 
-export const getServerSideProps = async () => {
-
-  const data = await fetch("http://localhost:3000/api/getUsers");
+export const getServerSideProps = async ({req}) => {
+  const hostname=req.headers.host
+  console.log("inside serversideprops"+hostname)
+  const data = await fetch(`http://${hostname}/api/getUsers`);
   const jsondata = await data.json();
   return {
     props: {
