@@ -1,40 +1,41 @@
 import { Server } from 'socket.io';
-import mongoose  from 'mongoose';
 import DBConnect from '../../../DBConnect';
-import getMessageController from '../../../controllers/getMessageController';
-export default function handler(req, res) {
 
-  if (!res.socket.server.io) {
+// Initialize the WebSocket server outside the handler function
+let io;
 
-    const io = new Server(res.socket.server, {
+export default async function handler(req, res) {
+  if (!io) {
+    // Initialize the WebSocket server only once
+    io = new Server(res.socket.server, {
       path: '/api/hello',
     });
 
-    res.socket.server.io = io;
-    const onlineUsers=new Map();
+    const onlineUsers = new Map();
+
     io.on('connection', (socket) => {
+      socket.on('add-user', (user) => {
+        onlineUsers.set(user.id, socket.id);
+      });
 
-
-      socket.on('add-user',(user)=>{
-        onlineUsers.set(user.id,socket.id);
-      })
       socket.on('input-change', (msg) => {
-        const socketUser=onlineUsers.get(msg.to);
-        if(socketUser)
-        socket.to(socketUser).emit("receive",msg);
-
+        const socketUser = onlineUsers.get(msg.to);
+        if (socketUser) {
+          socket.to(socketUser).emit('receive', msg);
+        }
       });
 
       socket.on('disconnect', () => {
-
+        // Remove user from the Map when disconnected
+        for (const [key, value] of onlineUsers.entries()) {
+          if (value === socket.id) {
+            onlineUsers.delete(key);
+            break;
+          }
+        }
       });
     });
-  } else {
-
   }
 
-res.end();
-
-
-
+  res.end(); // Avoid ending the response immediately
 }
