@@ -61,6 +61,7 @@ const Home = ({ jsondata }) => {
   }
   },[socket,currentUser]);
   useEffect(()=>{
+    console.log("socket value"+socket);
     if(socket){
     socket.on("receive", (msg) => {
       const receivemessage={
