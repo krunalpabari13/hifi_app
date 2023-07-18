@@ -11,7 +11,7 @@ import LoadingBar from 'react-top-loading-bar';
 export const getServerSideProps = async ({req}) => {
   const hostname=req.headers.host
   console.log("inside serversideprops"+hostname)
-  const data = await fetch(`http://${hostname}/api/getUsers`);
+  const data = await fetch(`https://${hostname}/api/getUsers`);
   const jsondata = await data.json();
   return {
     props: {
